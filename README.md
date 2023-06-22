@@ -15,7 +15,7 @@ This is my take on the classic arcade video game "Space Invaders". This game is 
 - Copy the contents of the main_macos.cpp file to your code editor or IDE and save it as 'project.cpp' .
 - to compile and run the program run these lines in the Terminal.
 
-   >gcc -framework OpenGL -framework GLUT project.cpp
+   >g++ -framework OpenGL -framework GLUT project.cpp
 - Now that the file is compiled, run it using:
 
    >./a.out
