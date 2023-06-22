@@ -20,6 +20,7 @@
 #define MAX_BULLETS 10
 
 bool game_start = false;
+bool game_won =false;
 
 typedef struct {
     float x, y;
@@ -86,10 +87,12 @@ void init_enemies() {
 
 void update_enemies() {
     bool reverse_direction = false;
+    bool all_destroy=true;
     for (int i = 0; i < ENEMY_ROWS; i++) {
         for (int j = 0; j < ENEMY_COLS; j++) {
             if (enemies[i][j].active) {
                 enemies[i][j].x += enemies[i][j].dx;
+                all_destroy=false;
                 if (enemies[i][j].x < ENEMY_SIZE / 2 ||
                     enemies[i][j].x > WINDOW_WIDTH - ENEMY_SIZE / 2) {
                     reverse_direction = true;
@@ -100,6 +103,9 @@ void update_enemies() {
                 }
             }
         }
+    }
+    if(all_destroy){
+        game_won=true;
     }
     if (reverse_direction) {
         for (int i = 0; i < ENEMY_ROWS; i++) {
@@ -181,7 +187,9 @@ void display() {
         if (game_over) {
             draw_text(WINDOW_WIDTH / 2 - 100, WINDOW_HEIGHT / 2, "Game Over");
         }
-
+        if(game_won){
+            draw_text(WINDOW_WIDTH/2-80,WINDOW_HEIGHT/2, "Congratulations,You have won the game!!");
+        }
     }
     glutSwapBuffers();
 }
