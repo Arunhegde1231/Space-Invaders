@@ -8,7 +8,7 @@ This is my take on the classic arcade video game "Space Invaders". This game is 
 - Make sure you have GLUT installed
 - Copy the contents of the main.cpp file to your code editor or IDE and compile and run it.
 
-### MAC USERS: 
+### macOS USERS: 
 - You must have Xcode Command Line Tools installed. Run this command in the Terminal.
 
    > xcode-select --install
